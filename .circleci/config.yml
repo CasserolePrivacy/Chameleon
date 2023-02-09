@@ -3,7 +3,6 @@ version: 2.1
 orbs:
   docker: circleci/docker@1.7.0
   flutter: circleci/flutter@1.1.0
-  node: circleci/node@5.1.0
 
 
 jobs:
