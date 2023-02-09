@@ -17,7 +17,7 @@ jobs:
       - checkout
       - docker/install-docker
       - flutter/install_sdk
-       - node/run
+      - node/run
 
       - run:
           name: "build"
