@@ -1,2 +1,1 @@
-alias chameleon-uninstall='sudo bash ~/.Chameleon/.core/.remo-czco.sh';
-alias chameleon-help='echo Help is avaliable on the GitHub Page.';
+alias chameleon-help='echo Help is avaliable on the GitHub Page.'

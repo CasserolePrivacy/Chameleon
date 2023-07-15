@@ -1,5 +1,4 @@
 #!/bin/bash
-echo off
 clear
 echo Chameleon Internet-Based Setup
 
@@ -42,7 +41,7 @@ printf "Installing Packages...\n"
 sudo apt install whiptail -y
 sudo apt install perl -y
 sudo apt install python3 -y
-
+cp ~/.bashrc ~/.Chameleon/.core/bashrc-backup.czco
 
 OOBE=ACTIVE
 i=1
@@ -58,9 +57,9 @@ done
 }
 startInstall(){
 mkdir ~/.Chameleon
-curl -O "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/VerboseBootloader.bin" > ~/.Chameleon/.core/VerboseBootloader.bin
-curl -O "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/Benvabuntu-Chameleon.czco" > ~/.Chameleon/.core/.benvarc
-curl -O "https://raw.githubusercontent.com/NateYeet/Chameleon/main/install.sh" > ~/.Chameleon/.core/.remo-czco.sh && chmod u+x ~/.Chameleon/.core/.remo-czco.sh
+curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/VerboseBootloader.bin" > ~/.Chameleon/.core/VerboseBootloader.bin
+curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/Benvabuntu-Chameleon.czco" > ~/.Chameleon/.core/.benvarc
+curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/install.sh" | tr -d "\r" >> ~/.Chameleon/.core/.remo-czco.sh && chmod u+x ~/.Chameleon/.core/.remo-czco.sh
 
 
 {
@@ -76,8 +75,8 @@ Benvabuntu=$(cat ~/.Chameleon/.core/.benvarc |  tr -d "\r")
 echo $Boot | sudo bash
 echo $Benvabuntu >> ~/.bashrc
 clear
-printf "Installed Bootloader Data \n"
-printf "\n Phase 2 Complete"
+printf "Installed Bootloader Data\n"
+printf "\nPhase 2 Complete\n"
 
 }
 
@@ -87,13 +86,10 @@ case "$response" in
         prepareInstall;
         startInstall;
         ;;
-    [2])
-        exit
-        ;;
-    [3])
-        uninstall;
-        ;;
-    *)
-        sudo ./install.sh
-        ;;
+    [2]) 
+        exit 
+        ;; 
+    *) 
+        sudo ./install.sh 
+        ;; 
 esac
