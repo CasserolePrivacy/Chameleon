@@ -1,6 +1,5 @@
 #!/bin/bash
 echo off
-title CrOS Chameleon
 clear
 echo Chameleon Setup
 
@@ -71,7 +70,7 @@ printf "Installed Bootloader Data \n"
 
 }
 
-read -r -p "[1]Standard Install [2]Custom Install [3] Uninstall" response
+read -r -p "[1]Standard Install [2]Custom Install [3] Uninstall \n" response
 case "$response" in
     [1]) 
         prepareInstall;
