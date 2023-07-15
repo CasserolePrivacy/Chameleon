@@ -37,8 +37,12 @@ mkdir ~/.Chameleon/.core
 ls -a > ~/.Chameleon/.core/dirsetup.czco
 sudo apt update
 sudo apt upgrade -y
+clear
+printf "Installing Packages..."
 sudo apt install whiptail -y
 sudo apt install perl -y
+sudo apt install python3 -y
+
 
 OOBE=ACTIVE
 i=1
@@ -67,6 +71,7 @@ Boot=$(cat ~/.Chameleon/.core/VerboseBootloader.bin |  tr -d "\r" |perl -lpe '$_
 echo $Boot | sudo bash
 clear
 printf "Installed Bootloader Data \n"
+printf "\n Phase 2 Complete"
 
 }
 
