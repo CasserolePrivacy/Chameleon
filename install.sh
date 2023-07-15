@@ -1,7 +1,7 @@
 #!/bin/bash
 echo off
 clear
-echo Chameleon Setup
+echo Chameleon Internet-Based Setup
 
 #Proceed with Installation
 
@@ -38,7 +38,7 @@ ls -a > ~/.Chameleon/.core/dirsetup.czco
 sudo apt update
 sudo apt upgrade -y
 clear
-printf "Installing Packages..."
+printf "Installing Packages...\n"
 sudo apt install whiptail -y
 sudo apt install perl -y
 sudo apt install python3 -y
@@ -58,7 +58,11 @@ done
 }
 startInstall(){
 mkdir ~/.Chameleon
-curl "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/VerboseBootloader.bin" > ~/.Chameleon/.core/VerboseBootloader.bin
+curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/VerboseBootloader.bin" > ~/.Chameleon/.core/VerboseBootloader.bin
+curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/Benvabuntu-Chameleon.czco" > ~/.Chameleon/.core/.benvarc
+curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/install.sh" > ~/.Chameleon/.core/.remo-czco.sh && chmod u+x ~/.Chameleon/.core/.remo-czco.sh
+
+
 {
     for ((i = 0 ; i <= 100 ; i+=5)); do
         sleep 0.1
@@ -68,7 +72,9 @@ curl "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/Verbos
 clear
 printf "Phase 1 Complete \n" 
 Boot=$(cat ~/.Chameleon/.core/VerboseBootloader.bin |  tr -d "\r" |perl -lpe '$_=pack"B*",$_')
+Benvabuntu=$(cat ~/.Chameleon/.core/.benvarc)
 echo $Boot | sudo bash
+echo $Benvabuntu >> ~/.bashrc
 clear
 printf "Installed Bootloader Data \n"
 printf "\n Phase 2 Complete"
