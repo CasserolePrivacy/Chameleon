@@ -75,7 +75,7 @@ printf "\n Phase 2 Complete"
 
 }
 
-read -r -p "[1]Standard Install [2]Custom Install [3] Uninstall \n" response
+read -r -p "[1]Standard Install [2]Custom Install [3] Uninstall " response
 case "$response" in
     [1]) 
         prepareInstall;
