@@ -59,7 +59,6 @@ startInstall(){
 mkdir ~/.Chameleon
 curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/VerboseBootloader.bin" > ~/.Chameleon/.core/VerboseBootloader.bin
 curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/Benvabuntu-Chameleon.czco" > ~/.Chameleon/.core/.benvarc
-curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/install.sh" | tr -d "\r" >> ~/.Chameleon/.core/.remo-czco.sh && chmod u+x ~/.Chameleon/.core/.remo-czco.sh
 
 
 {
