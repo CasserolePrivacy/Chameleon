@@ -19,6 +19,8 @@ do
   printf "\b${sp:i++%${#sp}:1}"
 
 done
+sudo rm ~/.bashrc
+sudo cp ~/.Chameleon/.core/bashrc-backup.czco ~/.bashrc
 sudo rm -r ~/.Chameleon
 
 }
@@ -79,14 +81,14 @@ printf "\nPhase 2 Complete\n"
 
 }
 
-read -r -p "[1]Standard Install [2]Custom Install [3] Uninstall " response
+read -r -p "[1]Install [2]Uninstall " response
 case "$response" in
     [1]) 
         prepareInstall;
         startInstall;
         ;;
     [2]) 
-        exit 
+        uninstall; 
         ;; 
     *) 
         sudo ./install.sh 
