@@ -1,51 +1,54 @@
 #!/bin/bash
 
 run=false
-
+s2=false
 mode=$(echo $1 | tr '[:upper:]' '[:lower:]');
 params=$(echo $2 | tr '[:upper:]' '[:lower:]');
-
+operands=$(echo $3 | tr '[:upper:]' '[:lower:]');
 
 function help() {
-echo Helping with $params
-
-exit 205
-}
+    s2=true
+    echo Visit 'https://GitHub.com/NateYeet/Chameleon' for help.
+    exit 205
+    }
 
 function node() {
-echo Helping with $params
-
-exit 205
-}
+    echo Helping with $params
+    if [[ $params == "" ]]; then 
+        s2=true
+        echo "Your node info: Name:$HOSTNAME, User:$USER, Chameleon Version: $(cat ~/.Chamelon/.code/sysmd) "
+    fi
+    exit 205
+    }
 
 function clutch() {
-echo Helping with $params
+    echo Helping with $params
 
-exit 205
-} 
+    exit 205
+    } 
 
 function connect() {
-echo Helping with $params
+    cho Helping with $params
 
-exit 205
-}
+    xit 205
+    }
 
 function batallion() {
-echo Helping with $params
+    echo Helping with $params
 
-exit 205
-}
+    exit 205
+    }
 
 function roll() {
-echo Helping with $params
+    echo Helping with $params
 
-exit 205
-}
+    exit 205
+    }
 
 function execute() {
-sudo curl -fsSL "https://sombalang.org:500/bash-addon.sh" | sudo bash $params
-exit 205
-}
+    sudo curl -fsSL "https://sombalang.org:500/bash-addon.sh" | sudo bash $params
+    exit 205
+    }
 
 
 function onRun() {

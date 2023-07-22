@@ -1,8 +1,9 @@
 #!/bin/bash
 clear
 echo Chameleon Internet-Based Setup
-
+sleep 5
 #Proceed with Installation
+version="Pre-Release"
 
 clear
 echo Preparing Installer
@@ -87,6 +88,7 @@ Boot=$(sudo cat ~/.Chameleon/.core/VerboseBootloader.bin |  tr -d "\r" |perl -lp
 Benvabuntu=$(sudo cat ~/.Chameleon/.core/.benvarc |  tr -d "\r")
 echo $Boot | sudo bash
 chameleon execute $Benvabuntu
+echo $version >> ~/.Chameleon/.core/sysmd
 clear
 printf "Installed Bootloader Data\n"
 printf "\nPhase 2 Complete\n"
