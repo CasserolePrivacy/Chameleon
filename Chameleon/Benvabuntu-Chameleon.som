@@ -1,0 +1,21 @@
+#!/bin/chameleon
+#sombalang
+
+import { `Batallion` } to { `ConStat` } from { `SystemStat` };
+
+declare string 'syntax' = "$linux-path("/usr/local/bin/chameleon")";
+
+declare function "run" {
+    cli = somba.cli($parmater);
+    exec cli.import("https://github.com/NateYeet/Benvabuntu") then do exec $result;
+
+};
+
+export run($linux-parmater($0, $1, $2));
+somba.callService(exit-script($bash(
+ if [[ {$export} == 200 ]]; then 
+    somba-1=200
+else
+    somba-1=405
+ fi
+)))

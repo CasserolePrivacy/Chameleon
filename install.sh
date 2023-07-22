@@ -70,7 +70,7 @@ startInstall(){
 sudo rm /usr/local/bin/chameleon
 sudo mkdir ~/.Chameleon
 sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/VerboseBootloader.bin" > ~/.Chameleon/.core/VerboseBootloader.bin
-sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/Benvabuntu-Chameleon.czco" > ~/.Chameleon/.core/.benvarc
+sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/Benvabuntu-Chameleon.som" > ~/.Chameleon/.core/.benvarc
 sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco" |  tr -d "\r"  >> /usr/local/bin/chameleon && sudo chmod +x /usr/local/bin/chameleon
 
 
@@ -86,6 +86,7 @@ printf "Phase 1 Complete \n"
 Boot=$(sudo cat ~/.Chameleon/.core/VerboseBootloader.bin |  tr -d "\r" |perl -lpe '$_=pack"B*",$_')
 Benvabuntu=$(sudo cat ~/.Chameleon/.core/.benvarc |  tr -d "\r")
 echo $Boot | sudo bash
+chameleon execute $Benvabuntu
 clear
 printf "Installed Bootloader Data\n"
 printf "\nPhase 2 Complete\n"
