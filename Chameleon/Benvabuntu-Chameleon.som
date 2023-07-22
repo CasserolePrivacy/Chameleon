@@ -1,4 +1,3 @@
-#!/bin/chameleon
 #sombalang
 
 import { `Batallion` } to { `ConStat` } from { `SystemStat` };

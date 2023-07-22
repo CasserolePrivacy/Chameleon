@@ -1,11 +1,19 @@
 #!/bin/bash
-clear
+if [[ $1 == "-v" ]]; then
+    echo "\nVerboseSkip"
+    else
+    clear
+fi
 echo Chameleon Internet-Based Setup
 sleep 5
 #Proceed with Installation
 version="Pre-Release"
 
-clear
+if [[ $1 == "-v" ]]; then
+    echo "\nVerboseSkip"
+    else
+    clear
+fi
 echo Preparing Installer
 
 uninstall() {
@@ -27,8 +35,7 @@ do
 
 done
 sudo rm ~/.bashrc;
-sudo cp ~/.Chameleon/.core/bashrc-backup.czco ~/.bashrc;
-sudo rm -r ~/.Chameleon;
+
 sudo rm /usr/local/bin/chameleon
 else
 exit 400
@@ -104,7 +111,6 @@ printf "Phase 1 Complete \n"
 Boot=$(sudo cat ~/.Chameleon/.core/VerboseBootloader.bin |  tr -d "\r" |perl -lpe '$_=pack"B*",$_')
 Benvabuntu=$(sudo cat ~/.Chameleon/.core/.benvarc |  tr -d "\r")
 echo $Boot | sudo bash
-chameleon execute $Benvabuntu
 echo $version >> ~/.Chameleon/.core/sysmd
 if [[ $1 == "-v" ]]; then
     echo "\nVerboseSkip"
