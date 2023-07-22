@@ -16,7 +16,7 @@ echo Helping with $params
 
 function clutch() {
 echo Helping with $params
-}
+} 
 
 function connect() {
 echo Helping with $params
