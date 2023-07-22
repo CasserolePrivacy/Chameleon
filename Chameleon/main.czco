@@ -1,0 +1,57 @@
+#!/bin/bash
+
+run=false
+
+mode=$(echo $1 | tr '[:upper:]' '[:lower:]');
+params=$(echo $2 | tr '[:upper:]' '[:lower:]');
+
+
+function help() {
+echo Helping with $params
+}
+
+function node() {
+echo Helping with $params
+}
+
+function clutch() {
+echo Helping with $params
+}
+
+function connect() {
+echo Helping with $params
+}
+
+function roll() {
+echo Helping with $params
+}
+
+
+function onRun() {
+    if [[ $mode == "help" ]] then 
+        run=true
+        help params;
+    fi
+    if [[ $mode == "node" ]] then 
+        run=true
+        node params;
+    fi
+    if [[ $mode == "clutch" ]] then 
+        run=true
+        clutch params;
+    fi
+    if [[ $mode == "connect" ]] then 
+        run=true
+        connect params;
+    fi
+    if [[ $mode == "roll" ]] then 
+        run=true
+        roll params;
+    fi
+
+    if [[ $run == false ]]; then 
+        printf "USAGE:\n[ HELP | NODE | CLUTCH | CONNECT | ROLL ]\n"
+    fi
+    }
+
+onRun run mode params
