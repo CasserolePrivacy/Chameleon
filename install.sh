@@ -8,7 +8,7 @@ clear
 echo Preparing Installer
 
 uninstall() {
-delete=$(whiptail --yesno "This will delete your Chameleon information and reset your .bashrc file " 0 0 3>&1 1>&2 2>&3 --title Uninstall --defaultno; echo $?)
+delete=$(whiptail --yesno "This will delete your Chameleon information. Continue?" 0 0 3>&1 1>&2 2>&3 --title Uninstall --defaultno; echo $?)
 if [[ $delete == 0 ]]; then
 REBO=ACTIVE
 i=1
@@ -24,10 +24,11 @@ done
 sudo rm ~/.bashrc;
 sudo cp ~/.Chameleon/.core/bashrc-backup.czco ~/.bashrc;
 sudo rm -r ~/.Chameleon;
+sudo rm /usr/local/bin/chameleon
 else
-echo -e
+exit 400
 fi
-echo -e
+exit 205
 }
 
 prepareInstall() {
@@ -66,6 +67,7 @@ do
 done
 }
 startInstall(){
+sudo rm /usr/local/bin/chameleon
 sudo mkdir ~/.Chameleon
 sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/VerboseBootloader.bin" > ~/.Chameleon/.core/VerboseBootloader.bin
 sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/Benvabuntu-Chameleon.czco" > ~/.Chameleon/.core/.benvarc
@@ -84,7 +86,6 @@ printf "Phase 1 Complete \n"
 Boot=$(sudo cat ~/.Chameleon/.core/VerboseBootloader.bin |  tr -d "\r" |perl -lpe '$_=pack"B*",$_')
 Benvabuntu=$(sudo cat ~/.Chameleon/.core/.benvarc |  tr -d "\r")
 echo $Boot | sudo bash
-echo $Benvabuntu >> ~/.bashrc
 clear
 printf "Installed Bootloader Data\n"
 printf "\nPhase 2 Complete\n"
