@@ -28,23 +28,23 @@ echo Helping with $params
 
 
 function onRun() {
-    if [[ $mode == "help" ]] then 
+    if [[ $mode == "help" ]]; then 
         run=true
         help params;
     fi
-    if [[ $mode == "node" ]] then 
+    if [[ $mode == "node" ]]; then 
         run=true
         node params;
     fi
-    if [[ $mode == "clutch" ]] then 
+    if [[ $mode == "clutch" ]]; then 
         run=true
         clutch params;
     fi
-    if [[ $mode == "connect" ]] then 
+    if [[ $mode == "connect" ]]; then 
         run=true
         connect params;
     fi
-    if [[ $mode == "roll" ]] then 
+    if [[ $mode == "roll" ]]; then 
         run=true
         roll params;
     fi
