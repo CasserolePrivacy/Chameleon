@@ -16,7 +16,7 @@ function node() {
     echo Helping with $params
     if [[ $params == "" ]]; then 
         s2=true
-        echo "Your node info: Name:$HOSTNAME, User:$USER, Chameleon Version: $(cat ~/.Chamelon/.code/sysmd) "
+        echo "Your node info: Name:$HOSTNAME, User:$USER, Chameleon Version: $(echo "Pre-Release") "
     fi
     exit 205
     }
