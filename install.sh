@@ -148,7 +148,7 @@ fi
 if [[ $1 == "-u" ]]; then
     uninstall;
 fi
-if [[ $1 == "" ]]; then
+if [[ $1 == " " ]]; then
     preguntar;
 fi
 
