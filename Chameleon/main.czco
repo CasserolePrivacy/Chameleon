@@ -45,7 +45,7 @@ function roll() {
     }
 
 function installresult() {
-    if [[ $params == "help" ]]; then 
+    if [[ $mode == "dockerresult-lnt-pleasedontusethis" ]]; then 
         s2=true
         echo Docker install compleated.
     fi
@@ -89,7 +89,7 @@ function onRun() {
     if [[ $mode == "dockerresult-lnt-pleasedontusethis" ]]; then 
         run=true
         params="dockerd"
-        installresult params;
+        installresult mode params;
     fi
 
 
