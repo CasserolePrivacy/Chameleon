@@ -65,11 +65,11 @@ done
 
 prepareInstall() {
     
-if ![[~/.Chameleon]]
+if ! [[ ~/.Chameleon ]]
 then
 rem 1
 else
-rm -r ~/.Chameleon
+sudo rm -r ~/.Chameleon
 fi
 
 sudo mkdir ~/.Chameleon
