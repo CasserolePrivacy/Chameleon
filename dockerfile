@@ -11,7 +11,7 @@ COPY install.sh /
 USER root
 
 RUN cat /install.sh | tr -d "\r" > /install.sh
-RUN chmod u+x /install.sh
+RUN chmod u+x /install.sh && /install.sh -i
 
 EXPOSE 6721
 
@@ -19,4 +19,4 @@ ENV PORT 6721
 
 
 
-CMD ["/install.sh", "-i"]
+CMD ["bash", "chameleon", "dockerresult-lnt-pleasedontusethis"]
