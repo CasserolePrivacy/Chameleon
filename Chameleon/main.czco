@@ -13,7 +13,6 @@ function help() {
     }
 
 function node() {
-    echo Helping with $params
     if [[ $params == "" ]]; then 
         s2=true
         echo "Your node info: Name:$HOSTNAME, User:$USER, Chameleon Version: $(echo "Pre-Release") "
@@ -42,6 +41,14 @@ function batallion() {
 function roll() {
     echo Helping with $params
 
+    exit 205
+    }
+
+function installresult() {
+    if [[ $params == "help" ]]; then 
+        s2=true
+        echo Docker install compleated.
+    fi
     exit 205
     }
 
@@ -79,6 +86,12 @@ function onRun() {
         run=true
         execute params;
     fi
+    if [[ $mode == "dockerresult-lnt-pleasedontusethis" ]]; then 
+        run=true
+        params="dockerd"
+        installresult params;
+    fi
+
 
     if [[ $run == false ]]; then 
         printf "USAGE:\n[ HELP | NODE | CLUTCH | CONNECT | BATALLION | ROLL ]\n"

@@ -34,13 +34,33 @@ do
   printf "\b${sp:i++%${#sp}:1}"
 
 done
-sudo rm ~/.bashrc;
 
 sudo rm /usr/local/bin/chameleon
 else
 exit 400
 fi
 exit 205
+}
+preguntar(){
+    optionsarray=("Install" "Uninstall" "Quit")
+select response in "${optionsarray[@]}"
+do
+case $response in
+    "Install") 
+        prepareInstall;
+        startInstall;
+        ;;
+    "Uninstall") 
+        uninstall; 
+        ;; 
+    "Quit")
+        exit 205;
+        ;;
+    *) 
+        sudo ./install.sh 
+        ;; 
+esac;
+done
 }
 
 prepareInstall() {
@@ -92,7 +112,7 @@ sudo rm /usr/local/bin/chameleon
 sudo mkdir ~/.Chameleon
 sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/VerboseBootloader.bin" > ~/.Chameleon/.core/VerboseBootloader.bin
 sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/Benvabuntu-Chameleon.som" > ~/.Chameleon/.core/.benvarc
-sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco" |  tr -d "\r"  >> /usr/local/bin/chameleon && sudo chmod +x /usr/local/bin/chameleon
+sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco" |  tr -d "\r"  >> /bin/chameleon && sudo chmod +x /bin/chameleon
 
 
 
@@ -121,17 +141,14 @@ printf "Installed Bootloader Data\n"
 printf "\nPhase 2 Complete\n"
 
 }
+if [[ $1 == "-i" ]]; then
+    prepareInstall;
+    startInstall;
+fi
+if [[ $1 == "-u" ]]; then
+    uninstall;
+fi
+if [[ $1 == "" ]]; then
+    preguntar;
+fi
 
-read -r -p "[1]Install [2]Uninstall " response
-case "$response" in
-    [1]) 
-        prepareInstall;
-        startInstall;
-        ;;
-    [2]) 
-        uninstall; 
-        ;; 
-    *) 
-        sudo ./install.sh 
-        ;; 
-esac
