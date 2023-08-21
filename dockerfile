@@ -7,9 +7,10 @@ WORKDIR /
 
 
 COPY install.sh /
+COPY Chameleon/main.czco /usr/local/bin/chameleon
 
 USER root
-
+RUN sudo apt upgrade && sudo apt install perl python3 whiptail net-tools -y
 RUN cat /install.sh | tr -d "\r" > /install.sh
 RUN chmod u+x /install.sh && /install.sh -i
 
