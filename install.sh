@@ -112,7 +112,7 @@ sudo rm /usr/local/bin/chameleon
 sudo mkdir ~/.Chameleon
 sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/VerboseBootloader.bin" > ~/.Chameleon/.core/VerboseBootloader.bin
 sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/Benvabuntu-Chameleon.som" > ~/.Chameleon/.core/.benvarc
-sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco" |  tr -d "\r"  >> /bin/chameleon && sudo chmod +x /bin/chameleon
+sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco" |  tr -d "\r"  >> /usr/local/bin/chameleon && sudo chmod +x /usr/local/bin/chameleon
 
 
 
@@ -148,7 +148,7 @@ fi
 if [[ $1 == "-u" ]]; then
     uninstall;
 fi
-if [[ $1 == " " ]]; then
+if ! [[ $1  ]]; then
     preguntar;
 fi
 
