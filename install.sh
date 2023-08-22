@@ -1,6 +1,7 @@
 #!/bin/bash
 if [[ $1 == "-v" ]]; then
-    echo "\nVerboseSkip"
+    echo "VerboseSkip"
+
     else
     clear
 fi
@@ -10,7 +11,8 @@ sleep 5
 version="Pre-Release"
 
 if [[ $1 == "-v" ]]; then
-    echo "\nVerboseSkip"
+    echo "VerboseSkip"
+
     else
     clear
 fi
@@ -24,7 +26,8 @@ i=1
 sp="/-\|"
 echo -n ' '
 if [[ $1 == "-v" ]]; then
-    echo "\nVerboseSkip"
+    echo "VerboseSkip"
+
     else
     clear
 fi
@@ -73,14 +76,15 @@ sudo rm -r ~/.Chameleon
 fi
 
 sudo mkdir ~/.Chameleon
-sudo chown $USER ~/.Chameleon
+sudo chown "$USER" ~/.Chameleon
 cd ~
 sudo mkdir ~/.Chameleon/.core
 ls -A > ~/.Chameleon/.core/dirsetup.czco
 sudo apt update
 sudo apt upgrade -y
 if [[ $1 == "-v" ]]; then
-    echo "\nVerboseSkip"
+    echo "VerboseSkip"
+
     else
     clear
 fi
@@ -90,7 +94,8 @@ sudo apt install perl -y
 sudo apt install python3 -y
 sudo cp ~/.bashrc ~/.Chameleon/.core/bashrc-backup.czco
 if [[ $1 == "-v" ]]; then
-    echo "\nVerboseSkip"
+    echo "VerboseSkip"
+
     else
     clear
 
@@ -123,17 +128,19 @@ sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chame
     done
 } | whiptail --gauge "Waiting for service..." 6 50 0
 if [[ $1 == "-v" ]]; then
-    echo "\nVerboseSkip"
+    echo "VerboseSkip"
+
     else
     clear
 fi
 printf "Phase 1 Complete \n" 
 Boot=$(sudo cat ~/.Chameleon/.core/VerboseBootloader.bin |  tr -d "\r" |perl -lpe '$_=pack"B*",$_')
 Benvabuntu=$(sudo cat ~/.Chameleon/.core/.benvarc |  tr -d "\r")
-echo $Boot | sudo bash
-echo $version >> ~/.Chameleon/.core/sysmd
+echo "$Boot" | sudo bash
+echo "$version" >> ~/.Chameleon/.core/sysmd
 if [[ $1 == "-v" ]]; then
-    echo "\nVerboseSkip"
+    echo "VerboseSkip"
+
     else
     clear
 fi
