@@ -1,7 +1,8 @@
 # Chameleon
 Privacy-centered service for Linux distros.
 # 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/6aaaeff023194d3fb6eadd2f3b32554f)](https://app.codacy.com/gh/NateYeet/Chameleon/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade) ![GitHub](https://img.shields.io/github/license/nateyeet/chameleon) ![Docker Pulls](https://img.shields.io/docker/pulls/nateyeet/chameleon) ![GitHub release (by tag)](https://img.shields.io/github/downloads/nateyeet/chameleon/chameleon/total)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/6aaaeff023194d3fb6eadd2f3b32554f)](https://app.codacy.com/gh/NateYeet/Chameleon/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade) ![GitHub](https://img.shields.io/github/license/nateyeet/chameleon) ![Docker Pulls](https://img.shields.io/docker/pulls/nateyeet/chameleon) ![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/nateyeet/chameleon)
+
 
 
 
