@@ -1,0 +1,19 @@
+version: 2.1
+
+jobs:
+  dockeretteinstall:
+   
+    docker:
+      - image: ghcr.io/nateyeet/chameleon:pre-release1
+
+    steps:
+      - checkout
+      - run:
+          name: "nodestat"
+          command: "chameleon node"
+
+
+workflows:
+  say-hello-workflow:
+    jobs:
+      - dockeretteinstall
