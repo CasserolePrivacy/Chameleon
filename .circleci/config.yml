@@ -4,14 +4,13 @@ jobs:
   dockeretteinstall:
    
     docker:
-      - image: ghcr.io/nateyeet/chameleon:pre-release1
+      - image: debian:stable
 
     steps:
       - checkout
       - run:
           name: "nodestat"
-          command: "chameleon node"
-
+          command: "curl -fsSL https://raw.githubusercontent.com/NateYeet/Chameleon/main/install.sh >> /ins && bash /ins -i && chameleon node"
 
 workflows:
   say-hello-workflow:
