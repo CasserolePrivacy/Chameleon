@@ -95,8 +95,7 @@ function onRun() {
 
     if [[ $run == false ]]; then 
         printf "USAGE:\n[ HELP | NODE | CLUTCH | CONNECT | BATALLION | ROLL ]\n"
-
-        exit 404
+        exit
     fi
     }
 
