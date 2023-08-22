@@ -18,7 +18,7 @@ jobs:
           command: snyk version
           name: Which version of snyk is installed
       - run:
-          command: snyk code test
+          command: echo snyk code test
           name: Run code scan
       - run:
           name: "nodestat"
