@@ -13,7 +13,6 @@ jobs:
     steps:
       - checkout
       - run: apt update && apt upgrade -y && apt install npm -y
-      - run: npm ci
       - snyk/install
       - run:
           command: snyk version
