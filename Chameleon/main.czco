@@ -9,7 +9,7 @@ operands=$(echo $3 | tr '[:upper:]' '[:lower:]');
 function help() {
     s2=true
     echo Visit 'https://GitHub.com/NateYeet/Chameleon' for help.
-    exit 205
+    exit 0
     }
 
 function node() {
@@ -17,31 +17,31 @@ function node() {
         s2=true
         echo "Your node info: Name:$HOSTNAME, User:$USER, Chameleon Version: $(echo "Pre-Release") "
     fi
-    exit 205
+    exit 0
     }
 
 function clutch() {
     echo Helping with $params
 
-    exit 205
+    exit 0
     } 
 
 function connect() {
     cho Helping with $params
 
-    xit 205
+    exit 0
     }
 
 function batallion() {
     echo Helping with $params
 
-    exit 205
+    exit 0
     }
 
 function roll() {
     echo Helping with $params
 
-    exit 205
+    exit 0
     }
 
 function installresult() {
@@ -49,7 +49,7 @@ function installresult() {
         s2=true
         echo Docker install compleated.
     fi
-    exit 205
+    exit 0
     }
 
 function execute() {
@@ -95,8 +95,7 @@ function onRun() {
 
     if [[ $run == false ]]; then 
         printf "USAGE:\n[ HELP | NODE | CLUTCH | CONNECT | BATALLION | ROLL ]\n"
-
-        exit 404
+        exit 0
     fi
     }
 

