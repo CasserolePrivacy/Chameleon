@@ -12,5 +12,5 @@ Use this command to run the Docker container
 #
 # Installation: Debian
 
-Use this command to run the Debian online installer `curl -fsSL https://raw.githubusercontent.com/NateYeet/Chameleon/main/install.sh | tr -d "\r" | sudo bash` to install.
+Use this command to run the Debian online installer `curl -fsSL https://raw.githubusercontent.com/NateYeet/Chameleon/main/install.sh | sudo bash` to install.
 
