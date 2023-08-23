@@ -1,0 +1,19 @@
+{
+  "name": "chameleonweb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NateYeet/Chameleon.git"
+  },
+  "author": "CasserolePrivacy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NateYeet/Chameleon/issues"
+  },
+  "homepage": "https://github.com/NateYeet/Chameleon#readme"
+}
