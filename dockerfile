@@ -1,7 +1,5 @@
 FROM debian:stable
 
-# Install dependencies only when needed
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
 RUN apt update && apt install sudo -y
 WORKDIR /
 
@@ -19,10 +17,9 @@ RUN  apt autoremove
 RUN  apt upgrade &&  apt install perl python3 whiptail net-tools nodejs npm -y
 
 
-EXPOSE 6721
-
-ENV PORT 6721
-
+EXPOSE 6721/udp
+EXPOSE 6721/tcp
 
 
-CMD ["cd", "/www", "&&", "node", "index.js"]
+
+CMD ["node", "/www/index.js"]
