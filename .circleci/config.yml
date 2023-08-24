@@ -25,8 +25,7 @@ jobs:
       - checkout
       - run: apt update && apt upgrade -y && apt install nodejs npm sudo -y
       - run: npm install -g yarn
-      - run: cd www && yarn     
-      - run: cd www && yarn test
+      - run: cd www && npm run test
 
 
 
