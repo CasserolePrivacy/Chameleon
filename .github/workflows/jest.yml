@@ -6,5 +6,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: cd www
-    - run: yarn 
-    - run: yarn test
+    - run: yarn ./www
+    - run: yarn test ./www
