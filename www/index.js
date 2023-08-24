@@ -1,24 +1,32 @@
-const http = require("http");
-const fs = require('fs').promises;
+const http = require('http');
+const express = require('express')
+const app = express()
 let indexFile;
 
-const host = '0.0.0.0';
+
+
+
+const host = "0.0.0.0";
 const port = 6721;
 
-const requestListener = function (req, res) {
-    res.setHeader("Content-Type", "text/html");
-    res.writeHead(200);
-    res.end(indexFile);
-};
-const server = http.createServer(requestListener);
-fs.readFile(__dirname + "/index.html")
-    .then(contents => {
-        indexFile = contents;
-        server.listen(port, host, () => {
-            console.log(`Server is running on http://${host}:${port}`);
-        });
-    })
-    .catch(err => {
-        console.error(`Could not read index.html file: ${err}`);
-        process.exit(1);
-    });
+
+
+
+app.all('/', function(req, res) {
+    res.sendFile('index.html', { root: __dirname });
+})
+
+
+app.all('/about', function(req, res) {
+    res.sendFile('pages/about.html', { root: __dirname });
+})
+
+
+app.all('*', function(req, res){
+    res.status(404).send('Chameleon Page Not Found');
+  });
+
+
+app.listen(port, function() {
+    console.log(`Listening on http://${host}:${port}`); 
+});

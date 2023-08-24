@@ -1,0 +1,24 @@
+#!/bin/bash
+
+apt update && apt upgrade -y
+apt install sudo nodejs npm perl python3 net-tools docker.io docker-compose whiptail -y
+echo "Node Version $(node -v)"
+
+startWebService() {
+    cd /scriptservice/
+    npm install express
+    npm install http
+    bash /scriptservice/serverarc
+};
+
+
+executeServer() {
+    startWebService;
+}
+
+
+
+
+
+
+executeServer
