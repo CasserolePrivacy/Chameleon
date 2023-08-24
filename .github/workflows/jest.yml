@@ -8,4 +8,4 @@ jobs:
     - run: cd www
     - run: ls
     - run: cd www && yarn     
-    - run: cd www& yarn test
+    - run: cd www && yarn test
