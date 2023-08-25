@@ -22,9 +22,9 @@ jobs:
   nodejsindex:
     docker:
       - image: "cimg/base:stable"
+    working_directory: /home/circleci/project/www
     steps:
       - checkout
-      - run: ls && echo test && pwd && exit 500
       - node/install
       - node/install-packages
       - run:
