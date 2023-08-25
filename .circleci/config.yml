@@ -4,6 +4,7 @@ orbs:
   snyk: snyk/snyk@1.7.2
   github-cli: circleci/github-cli@2.2.0
   node: circleci/node@5.1.0
+  
 
 
 jobs:
@@ -20,12 +21,15 @@ jobs:
           command: "set -e  && curl -fsSL https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco >> /ch && bash /ch node"
   nodejsindex:
     docker:
-      - image: ubuntu:jammy
+      - image: "cimg/base:stable"
     steps:
       - checkout
-      - run: apt update && apt upgrade -y && apt install nodejs npm sudo -y
-      - run: npm install -g jest
-      - run: cd www && npm run test
+      - run: ls && echo test && pwd && exit 500
+      - node/install
+      - node/install-packages
+      - run:
+          command: npm run test
+
 
 
 
