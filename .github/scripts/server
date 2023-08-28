@@ -10,10 +10,16 @@ startWebService() {
     npm install http
     bash /scriptservice/serverarc
 };
+startPyService() {
+    cd /scriptservice/
+    bash pyarc
+    
+}
 
 
 executeServer() {
     startWebService;
+    startPyService;
 }
 
 

@@ -5,7 +5,9 @@ WORKDIR /
 
 
 COPY www/ /www
+ 
 COPY .github/scripts /scriptservice
+COPY python/ /scriptservice/python
 COPY Chameleon/main.czco /bin/chameleon
 COPY Chameleon/main.czco /usr/local/bin/chameleon
 RUN mkdir ~/.Chameleon &&  mkdir ~/.Chameleon/.core && ls -A > ~/.Chameleon/.core/dirsetup.czco &&  cp ~/.bashrc ~/.Chameleon/.core/bashrc-backup.czco

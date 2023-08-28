@@ -146,7 +146,7 @@ if [[ $1 == "-v" ]]; then
 fi
 printf "Installed Bootloader Data\n"
 printf "\nPhase 2 Complete\n"
-exit 502
+exit 1
 }
 if [[ $1 == "-i" ]]; then
     prepareInstall;

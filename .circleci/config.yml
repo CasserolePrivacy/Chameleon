@@ -4,6 +4,11 @@ orbs:
   snyk: snyk/snyk@1.7.2
   github-cli: circleci/github-cli@2.2.0
   node: circleci/node@5.1.0
+  python: circleci/python@2.0.3
+
+
+
+  
   
 
 
@@ -26,6 +31,20 @@ jobs:
       - run: cd www && npm install
       - run:
           command: cd www && npm run test
+  pytest:
+    executor: python/default
+    steps:
+      - checkout
+      - persist_to_workspace:
+          root: /python/
+          paths:
+            - ./
+      - python/install-packages:
+          pkg-manager: pip
+      - run:
+          name: Run tests
+          command: python -m pytest
+
 
 
 
@@ -39,3 +58,4 @@ workflows:
     jobs:
       - dockeretteinstall
       - nodejsindex
+      - pytest

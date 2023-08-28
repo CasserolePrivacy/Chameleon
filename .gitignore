@@ -2,3 +2,5 @@
 .dockerignore
 .gitignore
 node_modules
+debug.log
+.pytest_cache
