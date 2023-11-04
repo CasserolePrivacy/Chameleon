@@ -68,18 +68,18 @@ done
 
 prepareInstall() {
     
-if ! [[ ~/.Chameleon ]]
+if ! [[ /var/.Chameleon ]]
 then
 rem 1
 else
-sudo rm -r ~/.Chameleon
+sudo rm -r /var/.Chameleon
 fi
 
-sudo mkdir ~/.Chameleon
-sudo chown "$USER" ~/.Chameleon
+sudo mkdir /var/.Chameleon
+sudo chown "$USER" /var/.Chameleon
 cd ~
-sudo mkdir ~/.Chameleon/.core
-ls -A > ~/.Chameleon/.core/dirsetup.czco
+sudo mkdir /var/.Chameleon/.core
+ls -A > /var/.Chameleon/.core/dirsetup.czco
 sudo apt update
 sudo apt upgrade -y
 if [[ $1 == "-v" ]]; then
@@ -92,7 +92,7 @@ printf "Installing Packages...\n"
 sudo apt install whiptail -y
 sudo apt install perl -y
 sudo apt install python3 -y
-sudo cp ~/.bashrc ~/.Chameleon/.core/bashrc-backup.czco
+sudo cp ~/.bashrc /var/.Chameleon/.core/bashrc-backup.czco
 if [[ $1 == "-v" ]]; then
     echo "VerboseSkip"
 
@@ -114,9 +114,9 @@ fi
 }
 startInstall(){
 sudo rm /usr/local/bin/chameleon
-sudo mkdir ~/.Chameleon
-sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/VerboseBootloader.bin" > ~/.Chameleon/.core/VerboseBootloader.bin
-sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/Benvabuntu-Chameleon.som" > ~/.Chameleon/.core/.benvarc
+sudo mkdir /var/.Chameleon
+sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/VerboseBootloader.bin" > /var/.Chameleon/.core/VerboseBootloader.bin
+sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/Benvabuntu-Chameleon.som" > /var/.Chameleon/.core/.benvarc
 sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco" |  tr -d "\r"  >> /usr/local/bin/chameleon && sudo chmod +x /usr/local/bin/chameleon
 
 
@@ -134,10 +134,10 @@ if [[ $1 == "-v" ]]; then
     clear
 fi
 printf "Phase 1 Complete \n" 
-Boot=$(sudo cat ~/.Chameleon/.core/VerboseBootloader.bin |  tr -d "\r" |perl -lpe '$_=pack"B*",$_')
-Benvabuntu=$(sudo cat ~/.Chameleon/.core/.benvarc |  tr -d "\r")
+Boot=$(sudo cat /var/.Chameleon/.core/VerboseBootloader.bin |  tr -d "\r" |perl -lpe '$_=pack"B*",$_')
+Benvabuntu=$(sudo cat /var/.Chameleon/.core/.benvarc |  tr -d "\r")
 echo "$Boot" | sudo bash
-echo "$version" >> ~/.Chameleon/.core/sysmd
+echo "$version" >> /var/.Chameleon/.core/sysmd
 if [[ $1 == "-v" ]]; then
     echo "VerboseSkip"
 

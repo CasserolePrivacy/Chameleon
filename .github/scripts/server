@@ -1,17 +1,16 @@
 #!/bin/bash
 
-apt update && apt upgrade -y
-apt install sudo nodejs npm perl python3 net-tools docker.io docker-compose whiptail -y
+apk update && apk upgrade 
+apk add nodejs npm perl python3 py3-pip net-tools docker docker-compose
 echo "Node Version $(node -v)"
 
 startWebService() {
-    cd /scriptservice/
-    npm install express
-    npm install http
+    cd /www
+    npm i
     bash /scriptservice/serverarc
 };
 startPyService() {
-    cd /scriptservice/
+    cd /scriptservice/python/
     bash pyarc
     
 }
