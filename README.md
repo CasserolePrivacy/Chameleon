@@ -8,7 +8,7 @@ Privacy-centered service for Linux distros.
 
 # Installation: Docker (recommended)
 Use this command to run the Docker container
-`docker run ghcr.io/nateyeet/chameleon:pre-release1`
+`docker run ghcr.io/casseroleprivacy/chameleon`
 #
 # Installation: Debian
 
