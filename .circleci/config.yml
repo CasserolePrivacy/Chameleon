@@ -30,9 +30,6 @@ jobs:
     executor: node/default 
     steps:
       - checkout
-      - run:
-        environment: 
-            SNYK_TOKEN: ${{ env.SNYK_TOKEN }}
       - run: cd www && npm install
       - run:
           command: cd www && npm run test
