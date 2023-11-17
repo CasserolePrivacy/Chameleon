@@ -2,3 +2,4 @@ cryptography==41.0.5
 Requests==2.31.0
 paramiko
 datetime
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
