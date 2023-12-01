@@ -5,7 +5,7 @@ orbs:
   github-cli: circleci/github-cli@2.2.0
   node: circleci/node@5.1.0
   python: circleci/python@2.0.3
-
+  codecov/codecov@3.2.4
 
 
   
@@ -33,6 +33,7 @@ jobs:
       - run: cd www && npm install
       - run:
           command: cd www && npm run test
+
 
 
 
