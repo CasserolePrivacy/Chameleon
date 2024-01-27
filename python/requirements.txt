@@ -1,4 +1,4 @@
-cryptography==41.0.6
+cryptography==42.0.0
 Requests==2.31.0
 paramiko
 datetime
