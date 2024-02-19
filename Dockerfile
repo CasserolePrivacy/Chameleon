@@ -10,7 +10,7 @@ COPY .github/scripts /scriptservice
 COPY python/ /scriptservice/python
 COPY Chameleon/main.czco /bin/chameleon
 COPY Chameleon/main.czco /usr/local/bin/chameleon
-RUN mkdir /var/.Chameleon &&  mkdir /var/.Chameleon/.core && ls -A > /var/.Chameleon/.core/dirsetup.czco
+RUN  mkdir -p /var/.Chameleon/.core && ls -A > /var/.Chameleon/.core/dirsetup.czco
 COPY Chameleon/Benvabuntu-Chameleon.som /root/.Chameleon/.core/.benvarc
 COPY Chameleon/VerboseBootloader.bin /root/.Chameleon/.core/VerboseBootloader.bin
 RUN cp /root/.Chameleon/.core/VerboseBootloader.bin /boot 
