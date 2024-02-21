@@ -1,5 +1,7 @@
 #!/bin/bash
 
+CZCOVERSION="Pre-Release"
+
 run=false
 s2=false
 mode=$(echo $1 | tr '[:upper:]' '[:lower:]');
@@ -15,34 +17,49 @@ function help() {
 function node() {
     if [[ $params == "" ]]; then 
         s2=true
-        echo "Your node info: Name:$HOSTNAME, User:$USER, Chameleon Version: $(echo "Pre-Release") "
+        echo "Your node info: Name: $HOSTNAME, User: $USER, Chameleon Version: $CZCOVERSION "
     fi
     exit 0
     }
 
 function clutch() {
-    echo Helping with $params
+    echo Starting clutch...
 
     exit 0
     } 
 
 function connect() {
-    cho Helping with $params
-
+    echo Connecting...
     exit 0
     }
 
 function batallion() {
-    echo Helping with $params
+    echo Loading Batallion Daemon...
 
     exit 0
     }
 
 function roll() {
-    echo Helping with $params
 
+    echo Do you really want to roll your Chameleon keys? [Y/n]
+    read keyrollestatus
+    case $keyrollestatus in
+        Y|y)
+        printf "Preparing to roll keys...\n"
+    python3 /scriptservice/python/authservice/reset_key.py
+        ;;
+        N|n)
+        printf "User cancelled. Exiting...\n"
+        exit 400 
+        ;;
+
+        *)
+        roll 
+        ;;
+    esac
+    
     exit 0
-    }
+}
 
 function installresult() {
     if [[ $mode == "dockerresult-lnt-pleasedontusethis" ]]; then 
@@ -60,31 +77,31 @@ function execute() {
 function onRun() {
     if [[ $mode == "help" ]]; then 
         run=true
-        help params;
+        help $params;
     fi
     if [[ $mode == "node" ]]; then 
         run=true
-        node params;
+        node $params;
     fi
     if [[ $mode == "clutch" ]]; then 
         run=true
-        clutch params;
+        clutch $params;
     fi
     if [[ $mode == "connect" ]]; then 
         run=true
-        connect params;
+        connect $params;
     fi
     if [[ $mode == "roll" ]]; then 
         run=true
-        roll params;
+        roll $params;
     fi
     if [[ $mode == "batallion" ]]; then 
         run=true
-        batallion params;
+        batallion $params;
     fi
     if [[ $mode == "execute" ]]; then 
         run=true
-        execute params;
+        execute $params;
     fi
     if [[ $mode == "dockerresult-lnt-pleasedontusethis" ]]; then 
         run=true

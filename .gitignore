@@ -4,3 +4,5 @@
 node_modules
 debug.log
 .pytest_cache
+python/authservice/__pycache__
+.github/workflows

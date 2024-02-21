@@ -1,7 +1,7 @@
 #!/bin/bash
-
-apk update && apk upgrade 
-apk add nodejs npm perl python3 py3-pip net-tools docker docker-compose
+printf "Updating repos...\n"
+apk update && apk upgrade
+apk add nodejs npm perl python3 py3-pip net-tools py3-cryptography py3-requests py3-paramiko py3-setuptools
 echo "Node Version $(node -v)"
 
 startWebService() {
@@ -11,14 +11,18 @@ startWebService() {
 };
 startPyService() {
     cd /scriptservice/python/
-    bash pyarc
+    bash /scriptservice/pyarc
     
 }
 
 
 executeServer() {
-    startWebService;
     startPyService;
+
+    if ! [ -f /env/no-web ]; then
+            startWebService;
+    fi
+
 }
 
 
