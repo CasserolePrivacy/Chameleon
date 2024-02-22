@@ -35,6 +35,7 @@ function connect() {
 
 function batallion() {
     echo Loading Batallion Daemon...
+    
 
     exit 0
     }
@@ -59,8 +60,7 @@ function roll() {
     esac
     
     exit 0
-}
-
+    }
 function installresult() {
     if [[ $mode == "dockerresult-lnt-pleasedontusethis" ]]; then 
         s2=true
