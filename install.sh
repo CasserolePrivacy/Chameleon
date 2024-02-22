@@ -115,8 +115,8 @@ fi
 startInstall(){
 sudo rm /usr/local/bin/chameleon
 sudo mkdir /var/.Chameleon
-sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/VerboseBootloader.bin" > /var/.Chameleon/.core/VerboseBootloader.bin
-sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/Benvabuntu-Chameleon.som" > /var/.Chameleon/.core/.benvarc
+sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/VerboseBootloader.bin" >> /var/.Chameleon/.core/VerboseBootloader.bin
+sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/Benvabuntu-Chameleon.som" >> /var/.Chameleon/.core/.benvarc
 sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco" |  tr -d "\r"  >> /usr/local/bin/chameleon && sudo chmod +x /usr/local/bin/chameleon
 
 
@@ -124,7 +124,7 @@ sudo curl -fsSL "https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chame
 {
     for ((i = 0 ; i <= 100 ; i+=5)); do
         sleep 0.1
-        echo $i
+        echo "$i"
     done
 } | whiptail --gauge "Waiting for service..." 6 50 0
 if [[ $1 == "-v" ]]; then
