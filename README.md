@@ -8,7 +8,8 @@ Privacy-centered service for Linux distros.
 
 # Installation: Docker (recommended)
 Use this command to run the Docker container
-`docker run -p 6721:6721 ghcr.io/casseroleprivacy/chameleon`
+`docker run -it -p 6721:6721 ghcr.io/casseroleprivacy/chameleon`
+The container will REQUIRE user input.
 #
 # Installation: Debian 
 !NO LONGER MAINTAINED!
