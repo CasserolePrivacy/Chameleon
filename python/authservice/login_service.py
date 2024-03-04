@@ -8,13 +8,8 @@ from keypass_service import authenticate
 
 
 def promptpasscode(passkeydat):
-    inputpass = str(getpass.getpass(prompt="Enter your Chameleon Passkey: \n")).encode('utf8')
-    if inputpass == passkeydat:
-        validsession = True
-        return validsession
-    else:
-        validsession = False
-        return validsession
+    inputpass = getpass.getpass(prompt="Enter your Chameleon Passkey: \n").encode('utf8')
+    return inputpass == passkeydat
 
 def isvalidsession(validsession,runner):
     if  validsession and runner:
@@ -22,6 +17,6 @@ def isvalidsession(validsession,runner):
 
 def loginuserdaemon(isvalidsession):
     if not isvalidsession:
-        print("Error: Unable to authenticate with current passkey and user.")
+        print(f"Error: Unable to authenticate with current passkey and user.")
     else:
-        print("Logged in sucessfully.")
+        print(f"Logged in sucessfully as {getpass.getuser()}.")
