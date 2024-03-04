@@ -4,23 +4,29 @@ import getpass
 import __main__
 from cryptography.fernet import Fernet
 
+def get_user_keys_dir():
+    """Returns the directory path where user's keys are stored."""
+    return os.path.join("/home", getpass.getuser(), ".Chameleon", ".core", "keys")
+
 def authenticate():
-    if os.path.exists(str("/home/" + str(getpass.getuser()) + "/.Chameleon/.core"  + "/keys/priv.czxs")):
-        with open(str("/home/" + str(getpass.getuser()) + "/.Chameleon/.core"  + "/keys/priv.czxs"), "rb") as key:
+    keys_dir = get_user_keys_dir()
+    priv_key_path = os.path.join(keys_dir, "priv.czxs")
+    keyette_path = os.path.join(keys_dir, "keyette.czxi")
+    
+    if os.path.exists(priv_key_path):
+        with open(priv_key_path, "rb") as key, open(keyette_path, "rb") as keyette:
             chamkey = Fernet(key.read())
-        with open(str("/home/" + str(getpass.getuser()) + "/.Chameleon/.core"  + "/keys/keyette.czxi"), "rb") as keyette:
             encrypted_syskey = keyette.read()
         passkeydat = chamkey.decrypt(encrypted_syskey)
         return passkeydat
 
     else:
-        os.makedirs(str("/home/" + str(getpass.getuser()) + "/.Chameleon/.core"  + "/keys/"))
+        os.makedirs(keys_dir, exist_ok=True)
         key = Fernet.generate_key()
         chamkey = Fernet(key)
-        passkey = str(getpass.getpass(prompt="Enter a key for Chameleon Cryptography Service: \n"))
+        passkey = getpass.getpass(prompt="Enter a key for Chameleon Cryptography Service: \n")
         token = chamkey.encrypt(passkey.encode('utf8'))
-        with open(str("/home/" + str(getpass.getuser()) + "/.Chameleon/.core" + "/keys/priv.czxs"), "wb") as privkey:
+        with open(priv_key_path, "wb") as privkey, open(keyette_path, "wb") as keyfile:
             privkey.write(key)
-        with open(str("/home/" + str(getpass.getuser()) + "/.Chameleon/.core" + "/keys/keyette.czxi"), "wb") as keyfile:
             keyfile.write(token)
         exit(code=1)
