@@ -8,9 +8,9 @@ Privacy-centered service for Linux distros.
 
 # Installation: Docker (recommended)
 Use this command to run the Docker container
-`docker run ghcr.io/casseroleprivacy/chameleon`
+`docker run -p 6721:6721 ghcr.io/casseroleprivacy/chameleon`
 #
-# Installation: Debian
-
+# Installation: Debian 
+!NO LONGER MAINTAINED!
 Use this command to run the Debian online installer `curl -fsSL https://raw.githubusercontent.com/NateYeet/Chameleon/main/install.sh | sudo bash` to install.
 
