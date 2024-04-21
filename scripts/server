@@ -1,9 +1,6 @@
 #!/bin/bash
-echo "Node Version $(node -v)"
 
 startWebService() {
-    cd /www
-    npm i
     bash /scriptservice/serverarc
 };
 startPyService() {
@@ -16,9 +13,9 @@ startPyService() {
 executeServer() {
     startPyService;
 
-    if ! [ -f /env/no-web ]; then
+    if [ "$web" = "true" ]; then
             startWebService;
-    fi
+    fi;
 
 }
 

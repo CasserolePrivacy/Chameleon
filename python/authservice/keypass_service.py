@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import os
 import getpass
-import __main__
 from cryptography.fernet import Fernet
 
 def get_user_keys_dir():
@@ -24,7 +23,7 @@ def authenticate():
         os.makedirs(keys_dir, exist_ok=True)
         key = Fernet.generate_key()
         chamkey = Fernet(key)
-        passkey = getpass.getpass(prompt="Enter a key for Chameleon Cryptography Service: \n")
+        passkey = os.getenv("key") if os.getenv("key") != "null" else getpass.getpass(prompt="Enter a key for Chameleon Cryptography Service: \n")
         token = chamkey.encrypt(passkey.encode('utf8'))
         with open(priv_key_path, "wb") as privkey, open(keyette_path, "wb") as keyfile:
             privkey.write(key)

@@ -6,7 +6,7 @@ declare string 'syntax' = "$linux-path("/usr/local/bin/chameleon")";
 
 declare function "run" {
     cli = somba.cli($parmater);
-    exec cli.import("https://github.com/NateYeet/Benvabuntu") then do exec $result;
+    exec cli.import("git","https://github.com/NateYeet/Benvabuntu") then do exec $result;
 
 };
 
