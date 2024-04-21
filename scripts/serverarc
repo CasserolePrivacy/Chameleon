@@ -1,0 +1,3 @@
+#!/bin/bash
+cd /www
+echo Running webserver on port 6721 && python3 webserver >> /dev/null 2>&1

@@ -1,13 +1,7 @@
 #!/usr/bin/env python3
-import threading
 import subprocess
 import getpass
-import os
-import platform
-import random, string
-import datetime
-import requests
-import sys
+import string
 from keypass_service import authenticate
 from login_service import promptpasscode
 from login_service import isvalidsession
