@@ -35,18 +35,23 @@ function connect() {
 
 function batallion() {
     echo Loading Batallion Daemon...
+    
 
     exit 0
     }
 
 function roll() {
+     if  ! [[ $key == null ]]  then
+        printf "Unable to roll keys. Chameleon key already exists. (ENV variable) \n"
+        exit 403
+     fi
 
     echo Do you really want to roll your Chameleon keys? [Y/n]
     read keyrollestatus
     case $keyrollestatus in
         Y|y)
         printf "Preparing to roll keys...\n"
-    python3 /scriptservice/python/authservice/reset_key.py
+        python3 /scriptservice/python/authservice/reset_key.py
         ;;
         N|n)
         printf "User cancelled. Exiting...\n"
@@ -59,8 +64,7 @@ function roll() {
     esac
     
     exit 0
-}
-
+    }
 function installresult() {
     if [[ $mode == "dockerresult-lnt-pleasedontusethis" ]]; then 
         s2=true

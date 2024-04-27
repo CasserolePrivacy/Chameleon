@@ -1,18 +1,15 @@
 #!/usr/bin/env python3
-import threading
 import subprocess
 import getpass
-import os
-import platform
-import random, string
-import datetime
-import requests
-import sys
+import string
 from keypass_service import authenticate
+from login_service import promptpasscode
+from login_service import isvalidsession
+from login_service import loginuserdaemon
 
 
 class ChameleonPy():
-        
+
     def __init__(self):
         global pathdir
         global passfile
@@ -21,43 +18,26 @@ class ChameleonPy():
         global runner
         runner = getpass.getuser()
 
-    def init_askforpasscode(self,passkeydat):
-        inputpass = str(getpass.getpass(prompt="Enter your Chameleon Passkey: \n")).encode('utf8')
-        if inputpass == passkeydat:
-            validsession = True
-            return validsession
-        else:
-            validsession = False
-            return validsession
-
-
-
-     
 class VaughnPy(ChameleonPy):
-    def runner(self,runner=getpass.getuser()):
+    def runner(self,runner):
           if runner:
              validRunner = True
           else:
              validRunner = False
-         
+
           if validRunner:
-            runner = [str("exec: " + str(self)),str("runner: " + runner)]
+            runner = [str("exec: " + str(self)),str(" runner: " + runner)]
             return runner
 
 
-Chameleon = ChameleonPy()            
-pass_service = authenticate()
-
-vaughnlib = VaughnPy()
-runner = vaughnlib.runner()
-
-passkeydat = pass_service
+Chameleon = ChameleonPy()
+passkeydat = authenticate()
+runner = VaughnPy().runner(runner=getpass.getuser())
 localrunner = runner
+validsession = promptpasscode(passkeydat)
+userisloggedintodaemon = loginuserdaemon(isvalidsession=isvalidsession(validsession,runner))
 
-validsession = Chameleon.init_askforpasscode(passkeydat)
 
-            
-            
 
 
 
