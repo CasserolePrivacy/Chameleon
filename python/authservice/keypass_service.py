@@ -3,12 +3,8 @@ import os
 import getpass
 from cryptography.fernet import Fernet
 
-def get_user_keys_dir():
-    """Returns the directory path where user's keys are stored."""
-    return os.path.join("/home", getpass.getuser(), ".Chameleon", ".core", "keys")
-
 def authenticate():
-    keys_dir = get_user_keys_dir()
+    keys_dir = os.path.join("/home", getpass.getuser(), ".Chameleon", ".core", "keys")
     priv_key_path = os.path.join(keys_dir, "priv.czxs")
     keyette_path = os.path.join(keys_dir, "keyette.czxi")
     

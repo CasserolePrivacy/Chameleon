@@ -1,6 +1,6 @@
 from flask import Flask
 import os
-
+port = int(os.environ.get('port', 6721)) if os.environ.get('port', 6721).isnumeric() else 6721
 app = Flask(__name__)
 app.env = "production"
 @app.route('/')
@@ -17,4 +17,4 @@ def serve_about():
     return content
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=6721)
+    app.run(host='0.0.0.0', port=port)

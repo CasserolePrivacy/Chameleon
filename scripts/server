@@ -1,5 +1,8 @@
 #!/bin/bash
-
+if [ $UID = 0 ]  ||  [ $EUID = 0 ]  ||  [ $(id -u) = 0 ] || [ $USER = "root" ]; then
+    su  chameleon
+    echo "Please don't run as root"  >> /dev/stderr
+fi
 startWebService() {
     bash /scriptservice/serverarc
 };
