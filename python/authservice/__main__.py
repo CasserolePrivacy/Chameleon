@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import subprocess
 import getpass
-import string
 from keypass_service import authenticate
 from login_service import promptpasscode
 from login_service import isvalidsession

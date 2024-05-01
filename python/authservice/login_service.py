@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
-import os
 import getpass
-import __main__
-from cryptography.fernet import Fernet
 from keypass_service import authenticate
 
 
