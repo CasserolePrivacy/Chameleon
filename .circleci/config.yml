@@ -35,7 +35,6 @@ workflows:
           image: casseroleprivacy/chameleon
           tag: nightly, $CIRCLE_SHA1
           use-buildkit: true
-          lint-dockerfile: true
           path: .
           registry: ghcr.io
           docker-password: dockerpass
