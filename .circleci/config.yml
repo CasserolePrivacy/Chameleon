@@ -31,7 +31,7 @@ workflows:
   docker:
     jobs:
       - docker/publish:
-          dockerfile: my.Dockerfile
+          lint-dockerfile: true
           image: casseroleprivacy/chameleon
           tag: nightly,$CIRCLE_SHA1
           path: .
