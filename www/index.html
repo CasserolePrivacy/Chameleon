@@ -1,40 +1,346 @@
 <html lang="en">
-
-<head>
+  <head>
     <title>Casserole Chameleon</title>
-    <style>@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500;600&display=swap');</style>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="components/navbar.js"></script>
-</head>
+    <meta charset="utf-8" />
+    <style>
+      .casserole-chameleon {
+        background-color: #7c7c7c;
+        display: flex;
+        flex-direction: column;
+      }
 
-<body style="margin: auto; padding: auto; background-color: gray;">
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Casserole Chameleon</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/" >Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/about" >About</a>
-              </li>
-              
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+      .image-1,
+      .image-2 {
+        aspect-ratio: 1;
+        object-fit: auto;
+        object-position: center;
+        width: 200px;
+        max-width: 100%;
+        padding: 20px;
+        transition: transform 0.3s ease;
+        color: #000;
+      }
+      .image-1:hover,
+      .image-2:hover {
+        transform: scale(1.1);
+      }
+      .search,
+      button {
+        padding: 0px;
+        border: 0px;
+        background: none;
+      }
+      body {
+        background-color: #7c7c7c;
+      }
+
+      .header {
+        background-color: rgba(61, 61, 61, 1);
+        width: 100%;
+      }
+
+      @media (max-width: 600px) {
+        .header {
+          max-width: 100%;
+          padding-right: 20px;
+        }
+      }
+
+      .header-content {
+        gap: 20px;
+        display: flex;
+      }
+
+      @media (max-width: 600px) {
+        .header-content {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0;
+        }
+      }
+
+      .logo-container {
+        display: flex;
+        flex-direction: column;
+        line-height: normal;
+        width: 78%;
+        margin-left: 0;
+      }
+
+      @media (max-width: 600px) {
+        .logo-container {
+          width: 100%;
+        }
+      }
+
+      .logo-wrapper {
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        gap: 20px;
+        font-size: 48px;
+        color: #fff;
+        font-weight: 400;
+      }
+
+      @media (max-width: 600px) {
+        .logo-wrapper {
+          max-width: 100%;
+          margin-top: 40px;
+          flex-wrap: wrap;
+          font-size: 40px;
+        }
+      }
+
+      .logo-text {
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        align-self: stretch;
+        flex-grow: 1;
+        font: 700 96px Ubuntu, sans-serif;
+      }
+
+      @media (max-width: 600px) {
+        .logo-text {
+          max-width: 100%;
+          font-size: 40px;
+        }
+      }
+
+      .nav-home {
+        text-align: center;
+        -webkit-text-stroke-width: 1;
+        -webkit-text-stroke-color: #000;
+        font-family: Ubuntu, sans-serif;
+        text-decoration-line: underline;
+        border-color: rgba(0, 0, 0, 1);
+        border-style: none;
+        border-width: 1px;
+        align-self: stretch;
+        flex-grow: 1;
+        flex-basis: auto;
+        margin: auto 0;
+        color: #fff;
+      }
+
+      @media (max-width: 600px) {
+        .nav-home {
+          font-size: 40px;
+        }
+      }
+
+      .nav-about {
+        text-align: center;
+        font-family: Ubuntu, sans-serif;
+        text-decoration-line: underline;
+        align-self: stretch;
+        flex-grow: 1;
+        flex-basis: auto;
+        margin: auto 0;
+        color: #fff;
+      }
+
+      @media (max-width: 600px) {
+        .nav-about {
+          font-size: 40px;
+        }
+      }
+
+      .search-container {
+        display: flex;
+        flex-direction: column;
+        line-height: normal;
+        width: 22%;
+        margin-left: 20px;
+      }
+
+      @media (max-width: 600px) {
+        .search-container {
+          width: 100%;
+        }
+      }
+
+      .search-wrapper {
+        display: flex;
+        gap: 1px;
+        align-self: stretch;
+        font-size: 32px;
+        color: #3d3d3d;
+        font-weight: 400;
+        white-space: nowrap;
+        margin: auto 0;
+      }
+
+      @media (max-width: 600px) {
+        .search-wrapper {
+          margin-top: 40px;
+          white-space: initial;
+        }
+      }
+
+      .search-input {
+        font-family: Ubuntu, sans-serif;
+        border-radius: 25px;
+        background-color: rgba(217, 217, 217, 0.4);
+        align-items: start;
+        justify-content: center;
+        flex-grow: 1;
+        width: fit-content;
+        border: 1px solid;
+        padding: 27px 34px 27px 27px;
+      }
+
+      @media (max-width: 600px) {
+        .search-input {
+          white-space: initial;
+          padding: 0 20px;
+        }
+      }
+
+      .search-icon {
+        aspect-ratio: 1.01;
+        object-fit: auto;
+        object-position: center;
+        width: 76px;
+        align-self: start;
+      }
+
+      .hero-image {
+        aspect-ratio: 2.04;
+        object-fit: auto;
+        object-position: center;
+        width: 100%;
+      }
+
+      @media (max-width: 600px) {
+        .hero-image {
+          max-width: 100%;
+        }
+        .image-container {
+          background-color: #7c7c7c;
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          padding: 79px 70px;
+        }
+
+        @media (max-width: 991px) {
+          .image-container {
+            padding: 0 20px;
+          }
+        }
+
+        @media (max-width: 991px) {
+          .image-2 {
+            margin-top: 40px;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="logo-container">
+          <div class="logo-wrapper">
+            <h1 class="logo-text">Casserole Chameleon</h1>
+            <nav>
+              <a href="/" class="nav-home">Home</a>
+              <a href="/about" class="nav-about">About</a>
+            </nav>
           </div>
         </div>
+        <div class="search-container">
+          <form class="search-wrapper">
+            <input
+              type="text"
+              id="search"
+              class="search-input"
+              placeholder="Search..."
+              aria-label="Search"
+            />
+            <button class="search" type="submit">
+              <svg
+                class="search-icon"
+                width="76"
+                height="75"
+                viewBox="0 0 76 75"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.5 25C0.5 11.469 11.469 0.5 25 0.5H51C64.531 0.5 75.5 11.469 75.5 25V50C75.5 63.531 64.531 74.5 51 74.5H25C11.469 74.5 0.5 63.531 0.5 50V25Z"
+                  fill="#96FFA0"
+                  fill-opacity="0.4"
+                  stroke="#96FFA0"
+                />
+                <path
+                  d="M36 53C44.8366 53 52 45.8366 52 37C52 28.1634 44.8366 21 36 21C27.1634 21 20 28.1634 20 37C20 45.8366 27.1634 53 36 53Z"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M56 57L47.3 48.3"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>
 
-</body>
-
+    <main>
+      <div class="image-container">
+        <a href="/settings" target="_self">
+          <svg
+            class="image-1"
+            xmlns="http://www.w3.org/2000/svg"
+            width="192"
+            height="192"
+            viewBox="0 0 24 24"
+          >
+            <g
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <path d="M12 20a8 8 0 1 0 0-16a8 8 0 0 0 0 16" />
+              <path
+                d="M12 14a2 2 0 1 0 0-4a2 2 0 0 0 0 4m0-12v2m0 18v-2m5 .66l-1-1.73m-5-8.66L7 3.34M20.66 17l-1.73-1M3.34 7l1.73 1M14 12h8M2 12h2m16.66-5l-1.73 1M3.34 17l1.73-1M17 3.34l-1 1.73m-5 8.66l-4 6.93"
+              />
+            </g>
+          </svg>
+        </a>
+        <a href="/network" target="_self">
+          <svg
+            class="image-2"
+            xmlns="http://www.w3.org/2000/svg"
+            width="192"
+            height="192"
+            viewBox="0 0 24 24"
+          >
+            <g
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <rect width="6" height="6" x="16" y="16" rx="1" />
+              <rect width="6" height="6" x="2" y="16" rx="1" />
+              <rect width="6" height="6" x="9" y="2" rx="1" />
+              <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3m-7-4V8" />
+            </g>
+          </svg>
+        </a>
+      </div>
+    </main>
+  </body>
 </html>
