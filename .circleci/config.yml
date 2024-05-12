@@ -33,7 +33,7 @@ workflows:
       - docker/publish:
           dockerfile: my.Dockerfile
           image: casseroleprivacy/chameleon
-          tag: nightly, $CIRCLE_SHA1
+          tag: nightly,$CIRCLE_SHA1
           path: .
           registry: ghcr.io
           docker-password: dockerpass
