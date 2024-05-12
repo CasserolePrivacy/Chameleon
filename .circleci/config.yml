@@ -34,7 +34,6 @@ workflows:
           dockerfile: my.Dockerfile
           image: casseroleprivacy/chameleon
           tag: nightly, $CIRCLE_SHA1
-          use-buildkit: true
           path: .
           registry: ghcr.io
           docker-password: dockerpass
