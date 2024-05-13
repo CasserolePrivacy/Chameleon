@@ -9,7 +9,7 @@ def promptpasscode(passkeydat):
     return inputpass == passkeydat
 
 def isvalidsession(validsession,runner):
-    if  validsession and runner:
+    if validsession and runner:
         return True
 
 def loginuserdaemon(isvalidsession):
