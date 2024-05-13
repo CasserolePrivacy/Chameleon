@@ -51,9 +51,10 @@ def serve_health():
             response.status_code = 503
             response.headers["Content-Type"] = "text/plain"
             return response
-            
-    except requests.exceptions.RequestException as e:
-        return f"FAILED: {str(e)}"
+    except Exception as e:
+        log(traceback.format_exc())
+        return "FAILED: " + str(e)
+
 
 if __name__ == '__main__':
     
