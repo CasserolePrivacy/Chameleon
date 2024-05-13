@@ -11,7 +11,7 @@ Privacy-centered service for Linux distros.
 Use this command to run the Docker container
 
 ```sh
-docker run -e key=YOUR-PASSKEY -it -p 6721:6721 ghcr.io/casseroleprivacy/chameleon
+docker run -e key=YOUR-PASSKEY -e telemetry=true -it -p 6721:6721 ghcr.io/casseroleprivacy/chameleon
 ```
 
 See [Docker Options](https://github.com/CasserolePrivacy/Chameleon/wiki/Docker-Options#options-for-docker-chameleon) for more info.
