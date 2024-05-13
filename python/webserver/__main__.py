@@ -42,18 +42,15 @@ def serve_network():
     return content
 @app.route('/health')
 def serve_health():
-    try:
-        response = requests.get(f"http://localhost:{port}/")
-        if response.status_code == 200:
-            return "200 OK"
-        else:
-            response = make_response(f"ERROR: {response.status_code}", response.status_code)
-            response.status_code = 503
-            response.headers["Content-Type"] = "text/plain"
-            return response
-    except Exception as e:
-        log(traceback.format_exc())
-        return "FAILED: " + str(e)
+    response = requests.get(f"http://localhost:{port}/")
+    if response.status_code == 200:
+        return "200 OK"
+    else:
+        response = make_response(f"ERROR: {response.status_code}", response.status_code)
+        response.status_code = 503
+        response.headers["Content-Type"] = "text/plain"
+        return response
+
 
 
 if __name__ == '__main__':
