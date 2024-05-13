@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
-import os
 import getpass
-import __main__
-from cryptography.fernet import Fernet
 from keypass_service import authenticate
 
 
@@ -12,7 +9,7 @@ def promptpasscode(passkeydat):
     return inputpass == passkeydat
 
 def isvalidsession(validsession,runner):
-    if  validsession and runner:
+    if validsession and runner:
         return True
 
 def loginuserdaemon(isvalidsession):

@@ -1,5 +1,6 @@
 #!/bin/bash
-if [ $UID = 0 ]  ||  [ $EUID = 0 ]  ||  [ $(id -u) = 0 ] || [ $USER = "root" ]; then
+export PATH="$PATH:/home/chameleon/.local/bin"
+if [ $(whoami) = "root" ] || [ $(id -u) = 0 ]; then
     su  chameleon
     echo "Please don't run as root"  >> /dev/stderr
 fi
@@ -11,12 +12,22 @@ startPyService() {
     bash /scriptservice/pyarc
     
 }
+prepareServer() {
+    if [ "$debug" = "true" ]; then
+        pip install -r /scriptservice/python/webserver/requirements.txt
+    else
+        echo "Installing requirements..."
+        pip install -r /scriptservice/python/webserver/requirements.txt >> /dev/null 2>&1
+    fi
 
+}
 
 executeServer() {
+    prepareServer;
     startPyService;
 
     if [ "$web" = "true" ]; then
+            
             startWebService;
     fi;
 
