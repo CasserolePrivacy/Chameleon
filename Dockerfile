@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.19.1
 
 LABEL com.casseroleprivacy.chameleon.vendor="support@casseroleprivacy.com"
 LABEL com.casseroleprivacy.chameleon.maintainer="support@casseroleprivacy.com"
@@ -29,13 +29,18 @@ RUN chown  chameleon:chameleon /var/log/Chameleon.log
 
 RUN cp /home/chameleon/.Chameleon/.core/VerboseBootloader.bin /boot 
 RUN apk update && apk upgrade
-RUN apk add bash perl python3 py3-flask py3-pip net-tools py3-cryptography py3-requests py3-paramiko py3-setuptools
+RUN apk --no-cache add bash perl python3 py3-pip net-tools
+
+RUN rm /usr/lib/python3.11/EXTERNALLY-MANAGED
+
 
 USER chameleon
 
 ENV web=true
 ENV key=null
 ENV port=6721
+ENV telemetry=false
+ENV debug=false
 
 HEALTHCHECK --interval=1m --timeout=3s \
   CMD curl -f http://localhost:${port}/health || exit 1
