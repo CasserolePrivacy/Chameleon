@@ -15,5 +15,7 @@ def isvalidsession(validsession,runner):
 def loginuserdaemon(isvalidsession):
     if not isvalidsession:
         print(f"Error: Unable to authenticate with current passkey and user.")
+        return False
     else:
         print(f"Logged in sucessfully as {getpass.getuser()}.")
+        return True
