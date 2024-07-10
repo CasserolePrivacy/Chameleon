@@ -5,3 +5,4 @@ pip
 requests>=2.31.0
 paramiko>=3.4.0
 setuptools>=69.5.1
+zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
