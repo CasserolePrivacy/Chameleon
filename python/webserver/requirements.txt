@@ -4,4 +4,4 @@ cryptography>=42.0.4
 pip
 requests>=2.31.0
 paramiko>=3.4.0
-setuptools>=69.5.1
+setuptools>=70.0.0
