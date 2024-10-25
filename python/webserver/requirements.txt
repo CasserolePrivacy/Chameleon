@@ -1,8 +1,8 @@
 sentry-sdk[flask]>=2.1.1
-flask
-cryptography>=42.0.4
+flask>=3.0.3
+cryptography>=42.0.7
 pip
-requests>=2.31.0
+requests>=2.32.0
 paramiko>=3.4.0
 setuptools>=69.5.1
 zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
