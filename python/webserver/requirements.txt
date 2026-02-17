@@ -1,6 +1,6 @@
 sentry-sdk[flask]>=2.1.1
 flask
-cryptography>=42.0.4
+cryptography>=46.0.5
 pip
 requests>=2.31.0
 paramiko>=3.4.0
